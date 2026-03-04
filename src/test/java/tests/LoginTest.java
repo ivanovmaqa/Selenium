@@ -1,6 +1,5 @@
 package tests;
 
-import static com.codeborne.selenide.Selenide.open;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
@@ -13,7 +12,6 @@ public class LoginTest extends BaseTest {
         loginPage.usernameField.setValue("Admin");
         loginPage.passwordField.setValue("admin123");
         loginPage.loginButton.click();
-        // TODO проверка что мы действительно залогинились
     }
 
     @Test
