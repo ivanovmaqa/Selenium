@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Condition;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
@@ -10,16 +11,23 @@ public class LoginTest extends BaseTest {
     @Test
     public void loginWithValidCreds() {
         loginPage.usernameField.setValue("Admin");
+        loginPage.usernameField.shouldHave(Condition.exactValue("Admin"));
         loginPage.passwordField.setValue("admin123");
+        loginPage.passwordField.shouldHave(Condition.exactValue("admin123"));
         loginPage.loginButton.click();
     }
 
     @Test
     public void loginWithInValidCreds() {
         loginPage.usernameField.setValue("Admin");
+        loginPage.usernameField.shouldHave(Condition.exactValue("Admin"));
         loginPage.passwordField.setValue("wrong");
+        loginPage.passwordField.shouldHave(Condition.exactValue("wrong"));
         loginPage.loginButton.click();
-        // TODO проверка что мы действительно залогинились
+        loginPage.errorMessage.shouldBe(Condition.visible);
+        loginPage.errorMessage.shouldHave(Condition.exactText("Invalid credentials"));
+        loginPage.usernameField.shouldBe(Condition.empty);
+        loginPage.passwordField.shouldBe(Condition.empty);
     }
 
     @Test
