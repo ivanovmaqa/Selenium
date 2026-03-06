@@ -1,13 +1,12 @@
 package utils;
 
-import pages.AdminPage;
-import pages.BasePage;
-import pages.LeavePage;
-import pages.LoginPage;
+import pages.*;
 
 public class App extends BasePage {
     public LoginPage loginPage = new LoginPage();
     public AdminPage adminPage = new AdminPage();
     public  UserCredentials userCreds = new UserCredentials();
     public LeavePage leavePage = new LeavePage();
+    public MyInfoPage myInfoPage = new MyInfoPage();
+    public PIMPage pimPage = new PIMPage();
 }
