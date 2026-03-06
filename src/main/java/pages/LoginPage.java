@@ -13,9 +13,9 @@ public class LoginPage extends BasePage {
     public SelenideElement loginButton = $(By.xpath("//button[@type='submit']"));
     public SelenideElement errorMessage = $(By.xpath("//div[@class='oxd-alert-content oxd-alert-content--error']"));
     public void  login(String login, String password) {
-        usernameField.setValue("login");
+        usernameField.setValue(login);
         usernameField.shouldHave(Condition.exactValue(login));
-        passwordField.setValue("password");
+        passwordField.setValue(password);
         passwordField.shouldHave(Condition.exactValue(password));
         loginButton.click();
     }
