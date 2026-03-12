@@ -28,6 +28,7 @@ public class MyInfoTest extends BaseTest {
         app.pimPage.pimTab.click();
         app.pimPage.employeeNameField.clear();
         app.pimPage.employeeNameField.setValue("sindy glen alex");
+        app.pimPage.employeeNameField.shouldHave(Condition.exactValue("sindy glen alex"));
         app.pimPage.searchButton.click();
         app.pimPage.searchResult.shouldBe(Condition.exist);
     }

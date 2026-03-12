@@ -1,6 +1,9 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+
+import static com.codeborne.selenide.Selectors.byText;
 
 public class AdminTest extends BaseTest {
 
@@ -10,5 +13,11 @@ public class AdminTest extends BaseTest {
         app.adminPage.adminTab.click();
         app.adminPage.usernameField.setValue("admin");
         app.adminPage.searchButton.click();
+    }
+
+    @Test
+    public void testDropDown() {
+        app.adminPage.usernameField.click();
+        app.adminPage.usernameField.getWrappedElement().findElement(byText("Москва")).click();
     }
 }
