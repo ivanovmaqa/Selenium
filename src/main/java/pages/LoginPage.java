@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -12,6 +13,8 @@ public class LoginPage extends BasePage {
     public SelenideElement passwordField = $(By.name("password"));
     public SelenideElement loginButton = $(By.xpath("//button[@type='submit']"));
     public SelenideElement errorMessage = $(By.xpath("//div[@class='oxd-alert-content oxd-alert-content--error']"));
+
+    @Step ("Логин")
     public void  login(String login, String password) {
         usernameField.setValue(login);
         usernameField.shouldHave(Condition.exactValue(login));

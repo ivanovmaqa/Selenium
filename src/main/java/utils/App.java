@@ -9,4 +9,5 @@ public class App extends BasePage {
     public LeavePage leavePage = new LeavePage();
     public MyInfoPage myInfoPage = new MyInfoPage();
     public PIMPage pimPage = new PIMPage();
+    public RecruitmentPage recruitmentPage = new RecruitmentPage();
 }
