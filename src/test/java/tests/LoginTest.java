@@ -1,6 +1,8 @@
 package tests;
 
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.*;
+import io.qameta.allure.testng.Tag;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
@@ -9,6 +11,10 @@ public class LoginTest extends BaseTest {
     LoginPage loginPage = new LoginPage();
 
     @Test
+    @Tag("smoke")
+    @Link("2324255252")
+    @Epic("342")
+    @Severity(SeverityLevel.CRITICAL)
     public void loginWithValidCreds() {
         loginPage.usernameField.setValue("Admin");
         loginPage.usernameField.shouldHave(Condition.exactValue("Admin"));
@@ -18,9 +24,13 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @Tag("smoke")
+    @Link("2324255252")
+    @Epic("342")
+    @Flaky
     public void loginWithInValidCreds() {
         loginPage.usernameField.setValue("Admin");
-        loginPage.usernameField.shouldHave(Condition.exactValue("Admin"));
+        loginPage.usernameField.shouldHave(Condition.exactValue("Admin2"));
         loginPage.passwordField.setValue("wrong");
         loginPage.passwordField.shouldHave(Condition.exactValue("wrong"));
         loginPage.loginButton.click();
